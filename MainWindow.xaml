@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrevExamPaper"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        Loaded="Window_Loaded">
     <Grid Margin="0,0,-102,-72">
         <CheckBox x:Name="cbCurrentAccounts" Content="Current Acounts" HorizontalAlignment="Left" Margin="46,59,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="cbSavingsAccounts" Content="Savings Accounts" HorizontalAlignment="Left" Margin="212,59,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.724,0.533"/>

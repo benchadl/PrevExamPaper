@@ -11,6 +11,7 @@ namespace PrevExamPaper
         #region properties
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string AccountNumber { get; set; }
 
         public decimal Balance { get; set; }
 
@@ -19,13 +20,13 @@ namespace PrevExamPaper
         #endregion properties 
 
         #region constructors
-        public Account(string firstName, string lastName, decimal balance, DateTime interestDate)
+        public Account(string firstName, string lastName, decimal balance, DateTime interestDate, string accountNumber)
         {
             FirstName = firstName;
             LastName = lastName;
             Balance = balance;
             InterestDate = interestDate;
-                
+            AccountNumber = accountNumber;     
         }
 
         public Account()
@@ -33,7 +34,7 @@ namespace PrevExamPaper
             
         }
 
-        public Account(string firstName, string lastName) :this(firstName, lastName, 0,DateTime.Now) { }
+        public Account(string firstName, string lastName, string accountNumber) :this(firstName, lastName, 0,DateTime.Now, accountNumber) { }
         #endregion constructors
 
         #region methods
@@ -52,7 +53,7 @@ namespace PrevExamPaper
 
         public override string ToString()
         {
-            return $"{LastName}, {FirstName}";
+            return $"{AccountNumber} - {LastName}, {FirstName}";
         }
         #endregion methods
     }

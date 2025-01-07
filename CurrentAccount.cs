@@ -11,8 +11,8 @@ namespace PrevExamPaper
         // Constants
         private const decimal INTEREST_RATE = 0.03M;
         // Constructors
-        public CurrentAccount(string firstName, string lastName, decimal balance, DateTime interestDate)
-            : base(firstName, lastName, balance, interestDate) { }
+        public CurrentAccount(string firstName, string lastName, decimal balance, DateTime interestDate, string accountNumber)
+            : base(firstName, lastName, balance, interestDate, accountNumber) { }
         //methods
         public override void CalculateInterest()
         {
