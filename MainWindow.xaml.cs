@@ -45,7 +45,7 @@ namespace PrevExamPaper
         private void lbxAccounts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // determine what account is selected
-            Account selected = lbxAccounts .SelectedItem as Account;
+            Account selected = lbxAccounts.SelectedItem as Account;
             // check for null
             if (selected != null)
             {
@@ -74,16 +74,16 @@ namespace PrevExamPaper
             // determine what checkbox was selected 
             bool savings = false, current = false;
 
-            if (cbCurrentAccounts.IsChecked.Value) 
+            if (cbCurrentAccounts.IsChecked.Value)
                 current = true;
 
             if (cbSavingsAccounts.IsChecked.Value)
                 savings = true;
             // update display 
 
-            if (current && savings )
+            if (current && savings)
             {
-                lbxAccounts .ItemsSource = accounts;
+                lbxAccounts.ItemsSource = accounts;
             }
             // search for current accounts
             else if (current)
@@ -99,7 +99,7 @@ namespace PrevExamPaper
             // search for savings account
             else if (savings)
             {
-                foreach(Account account in accounts)
+                foreach (Account account in accounts)
                 {
                     if (account is Account)
                         filteredAccounts.Add(account);
@@ -136,6 +136,33 @@ namespace PrevExamPaper
         private void tbxTransactionAmout_GotFocus(object sender, RoutedEventArgs e)
         {
             tbxTransactionAmout.Clear();
+        }
+
+        private void btnWithdraw_Click(object sender, RoutedEventArgs e)
+        {
+            // read amount to add
+            decimal amount = 0;
+            if (Decimal.TryParse(tbxTransactionAmout.Text, out amount))
+            {
+                // determine selected amount
+                Account selected = lbxAccounts.SelectedItem as Account;
+
+                if (selected != null)
+                {
+                    // Add Amount
+                    selected.Withdraw(amount);
+                    UpdateDisplay(selected);
+                }
+            }
+        }
+
+        private void btnInterset_Click(object sender, RoutedEventArgs e)
+        {
+            Account selected = lbxAccounts.SelectedItem as Account;
+            if (selected != null) {
+                selected.CalculateInterest();
+                UpdateDisplay(selected);
+            }
         }
     }
 }
