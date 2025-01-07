@@ -32,8 +32,8 @@
         <TextBlock x:Name="tblkBalance" HorizontalAlignment="Left" Margin="536,164,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.264,0.566"/>
         <TextBlock x:Name="tblkAccountType" HorizontalAlignment="Left" Margin="536,200,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
         <TextBlock x:Name="tblkIntrestDate" HorizontalAlignment="Left" Margin="536,272,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbxTransactionAmout" HorizontalAlignment="Left" Margin="536,324,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnDeposit" Content="Deposit" HorizontalAlignment="Left" Margin="712,107,0,0" VerticalAlignment="Top" Height="22" Width="57"/>
+        <TextBox x:Name="tbxTransactionAmout" HorizontalAlignment="Left" Margin="536,324,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" GotFocus="tbxTransactionAmout_GotFocus"/>
+        <Button x:Name="btnDeposit" Content="Deposit" HorizontalAlignment="Left" Margin="712,107,0,0" VerticalAlignment="Top" Height="22" Width="57" Click="btnDeposit_Click"/>
         <Button x:Name="btnWithdraw" Content="Withdraw" HorizontalAlignment="Left" Margin="712,169,0,0" VerticalAlignment="Top" Height="22" Width="70"/>
         <Button x:Name="btnInterset" Content="Interest" HorizontalAlignment="Left" Margin="712,222,0,0" VerticalAlignment="Top" Height="22" Width="48" RenderTransformOrigin="0.542,-0.407"/>
 

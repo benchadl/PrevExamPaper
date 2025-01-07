@@ -50,14 +50,19 @@ namespace PrevExamPaper
             if (selected != null)
             {
                 //update display
-                tblkFirstName.Text = selected.FirstName;
-                tblkLastName.Text = selected.LastName;
-                tblkBalance.Text = selected.Balance.ToString("c");
-                tblkAccountType.Text = selected.GetType().Name;
-                tblkIntrestDate.Text = selected.InterestDate.ToString("d");
+                UpdateDisplay(selected);
             }
 
 
+        }
+
+        private void UpdateDisplay(Account selected)
+        {
+            tblkFirstName.Text = selected.FirstName;
+            tblkLastName.Text = selected.LastName;
+            tblkBalance.Text = selected.Balance.ToString("c");
+            tblkAccountType.Text = selected.GetType().Name;
+            tblkIntrestDate.Text = selected.InterestDate.ToString("d");
         }
 
         private void checkBox_Click(object sender, RoutedEventArgs e)
@@ -106,6 +111,31 @@ namespace PrevExamPaper
         private void cbSavingsAccounts_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btnDeposit_Click(object sender, RoutedEventArgs e)
+        {
+            // read amount to add
+            decimal amount = 0;
+            if (Decimal.TryParse(tbxTransactionAmout.Text, out amount))
+            {
+                // determine selected amount
+                Account selected = lbxAccounts.SelectedItem as Account;
+
+                if (selected != null)
+                {
+                    // Add Amount
+                    selected.Deposit(amount);
+                    UpdateDisplay(selected);
+                }
+
+            }
+
+        }
+
+        private void tbxTransactionAmout_GotFocus(object sender, RoutedEventArgs e)
+        {
+            tbxTransactionAmout.Clear();
         }
     }
 }
