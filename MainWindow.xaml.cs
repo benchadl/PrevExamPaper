@@ -19,6 +19,7 @@ namespace PrevExamPaper
     public partial class MainWindow : Window
     {
         List<Account> accounts = new List<Account>();
+        List<Account> filteredAccounts = new List<Account>();
         public MainWindow()
         {
             InitializeComponent();
@@ -56,6 +57,54 @@ namespace PrevExamPaper
                 tblkIntrestDate.Text = selected.InterestDate.ToString("d");
             }
 
+
+        }
+
+        private void checkBox_Click(object sender, RoutedEventArgs e)
+        {
+            // reset the listbox display
+            lbxAccounts.ItemsSource = null;
+            // clear the filter
+            filteredAccounts.Clear();
+            // determine what checkbox was selected 
+            bool savings = false, current = false;
+
+            if (cbCurrentAccounts.IsChecked.Value) 
+                current = true;
+
+            if (cbSavingsAccounts.IsChecked.Value)
+                savings = true;
+            // update display 
+
+            if (current && savings )
+            {
+                lbxAccounts .ItemsSource = accounts;
+            }
+            // search for current accounts
+            else if (current)
+            {
+                foreach (Account account in accounts)
+                {
+                    if (account is CurrentAccount)
+                        filteredAccounts.Add(account);
+                }
+
+                lbxAccounts.ItemsSource = filteredAccounts;
+            }
+            // search for savings account
+            else if (savings)
+            {
+                foreach(Account account in accounts)
+                {
+                    if (account is Account)
+                        filteredAccounts.Add(account);
+                }
+                lbxAccounts.ItemsSource = filteredAccounts;
+            }
+        }
+
+        private void cbSavingsAccounts_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

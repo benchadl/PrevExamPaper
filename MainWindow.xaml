@@ -8,8 +8,8 @@
         Title="MainWindow" Height="450" Width="800"
         Loaded="Window_Loaded">
     <Grid Margin="0,0,-102,-72">
-        <CheckBox x:Name="cbCurrentAccounts" Content="Current Acounts" HorizontalAlignment="Left" Margin="46,59,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="cbSavingsAccounts" Content="Savings Accounts" HorizontalAlignment="Left" Margin="212,59,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.724,0.533"/>
+        <CheckBox x:Name="cbCurrentAccounts" Content="Current Acounts" HorizontalAlignment="Left" Margin="46,59,0,0" VerticalAlignment="Top" Click="checkBox_Click"/>
+        <CheckBox x:Name="cbSavingsAccounts" Content="Savings Accounts" HorizontalAlignment="Left" Margin="212,59,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.724,0.533" Click="cbSavingsAccounts_Click"/>
         <ListBox x:Name="lbxAccounts" d:ItemsSource="{d:SampleData ItemCount=5}" RenderTransformOrigin="0.5,0.5" Margin="41,86,529,95" SelectionChanged="lbxAccounts_SelectionChanged">
             <ListBox.RenderTransform>
                 <TransformGroup>
